@@ -19,14 +19,29 @@ function renderCart() {
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
-function clearCart() {}
+function clearCart() {
+  // Credits to stackoverflow
+  let new_tbody = document.createElement('tbody');
+  populate_with_new_rows(new_tbody);
+  old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
+
+  // $("tbody tr").remove(); 
+}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
 
   // TODO: Find the table body
+  let tableBody = document.getElementsByTagName('tbody');
 
   // TODO: Iterate over the items in the cart
+  for(let i = 0; i<cart.length; i++ ){
+    let tR = document.createElement('tr');
+    tableBody.append(tR);
+    let tD1 = document.createElement('td');
+    let tD2 = document.createElement('td');
+    let tD3 = document.createElement('td');
+  }
   // TODO: Create a TR
   // TODO: Create a TD for the delete link, quantity,  and the item
   // TODO: Add the TR to the TBODY and each of the TD's to the TR
